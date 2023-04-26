@@ -1,0 +1,56 @@
+body{
+    background-image: url(https://images5.alphacoders.com/940/940528.png);
+    background-size: cover;
+    padding: 0;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color:beige;
+}
+#background{
+    width: 65%;
+    background-color: rgba(69, 53, 116, 0.8);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    height: 100vh;
+    text-align: center;
+}
+.titulo{
+    color: beige;
+    display: inline-block;
+    margin: 0%;
+    
+    
+}
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background-color:rgba(69, 53, 116, 1);
+    text-align: center;
+    /* width: 65%; */
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 4px solid #b29ebe;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.logo{
+    text-align: right;
+    display: inline-block;
+    padding-top: 10px;
+}
+.img_logo{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    /* padding-top: 20px; */
+    
+}
+.api_key{
+    text-align: center;
+    padding-top: 80px;
+    
+}
