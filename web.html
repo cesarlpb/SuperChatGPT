@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mi primera página web</title>
+<style>
+    body {
+    text-align: center;
+	color: white;
+	background-color: black;
+      }
+    </style>  
+</head>
+  <body>
+    <h1>Bienvenido a mi página web</h1>
+    <p>Esta es mi primera página web creada con HTML.</p>
+    <input id="prueba" type="text"></input> 
+    <input id="prompt" type="text"></input>
+    <p id="answer"></p>
+    <button type="text" onclick="pedirPrompt()">Enviar</button>
+	<script>
+      function pedirPrompt(){
+        let elementApiKey = document.getElementById("prueba");
+        let valor = elementApiKey.value;
+        let elementPrompt = document.getElementById("prompt")
+        let valor2 = elementPrompt.value;
+        let elementAnswer = document.getElementById("answer")
+        //elementAnswer.innerText = valor + valor2
+        fetch("https://api.openai.com/v1/completions", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer " + valor
+                },
+                body: JSON.stringify({
+                  "model": "text-davinci-003",
+                  "prompt": valor2,
+                  "max_tokens": 3000,
+                  "temperature": 0
+                })
+              })
+              .then(response => response.json())
+              .then(data => document.getElementById("answer").innerText=data.choices[0].text)
+              .catch(error => console.error(error))
+
+      }
+
+      /* 
+      fetch("https://api.openai.com/v1/completions", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer " + valor
+                },
+                body: JSON.stringify({
+                  "model": "text-davinci-003",
+                  "prompt": valor2,
+                  "max_tokens": 3000,
+                  "temperature": 0
+                })
+              })
+              .then(response => response.json())
+              .then(data => console.log(data.choices[0].text))
+              .catch(error => console.error(error))
+
+              */
+    </script>  
+</body>
+</html>
