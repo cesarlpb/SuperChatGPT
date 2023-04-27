@@ -3,53 +3,92 @@
 
 <head>
   <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>superchatgpt</title> 
   <link href="app.css" rel="stylesheet">
 </head>
-
-<body>
-<div class="encabezado">
-  <h1 class="titulo">SuperChatGPT</h1>
-  <!-- <div class="logo"> -->
-  <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
-<!-- </div> -->
-</div>
-  <header id="background">
-    <div class="api_key">
-      <!-- <h2></h2> -->
-      <form>
-        <label for="api_key-input">Ingresar Clave de API: </label>
-        <input type="text" id="api-key-input" name="api-key-input" required>
-      </form>
+ 
+<body> 
+ <header>
+    <div class="encabezado">
+      <h1 class="titulo">SuperChatGPT</h1>
+    <div class="logo">
+      <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
     </div>
-    <br>
-    <br>
-    <br>
-    <div class="casilla_prompt">
-      <form>
-        <label for="question"> Pregunta:</label><br>
-        <textarea id="question" name="question" rows="4" cols="50"></textarea>
-        <br><br>
-        <button type="submit">Enviar</button>
-      </form>
-        <!-- <h2></h2> -->
-        <form>
-          <label for="answer">Respuesta:</label><br>
-          <textarea id="answer" name="answer" rows="4" cols="50"></textarea>
-          <br><br>
-        </form>
-      </div>
     </div>
   </header>
 
-  <main>
-    <br>
-    <br>
-  </main>
+  <section class="background">
+  <section class="sec-key">
+    <form>
+      <label for="api_key-input">Ingresar Clave de API: </label>
+      <input type="text" id="api-key-input" name="api-key-input" placeholder="Aquí va tu clave" required>
+    </form>
+  </section>
 
-  <footer>
+  <div class="sec-pre">
+      <label for="question"> Pregunta:</label><br>
+      <textarea id="question" name="question" rows="4" cols="50" placeholder="Te gustan los aguacates?"></textarea>
+      <br><br>
+      <button onclick="pedirPrompt()">Enviar</button>
+  </div>    
+
+  <div class="sec-res">   
+    <form>
+      <label for="answer">Respuesta:</label><br>
+      <textarea id="answer" name="answer" rows="20" cols="77" placeholder="Me gustan los aguacates...;D"></textarea>
+    </form> 
+  </div> 
+</section>
+    <footer>
     <p>Derechos de CHATGPT © 2023</p>
   </footer>
-</body>
+  <script>
+    function pedirPrompt(){
+      let elementApiKey = document.getElementById("api-key-input");
+      let valor = elementApiKey.value;
+      let elementPrompt = document.getElementById("question")
+      let valor2 = elementPrompt.value;
+      let elementAnswer = document.getElementById("answer")
+      //elementAnswer.innerText = valor + valor2
+      fetch("https://api.openai.com/v1/completions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + valor
+              },
+              body: JSON.stringify({
+                "model": "text-davinci-003",
+                "prompt": valor2,
+                "max_tokens": 3000,
+                "temperature": 0
+              })
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById("answer").innerText=data.choices[0].text)
+            .catch(error => console.error(error))
 
+    }
+
+    /* 
+    fetch("https://api.openai.com/v1/completions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + valor
+              },
+              body: JSON.stringify({
+                "model": "text-davinci-003",
+                "prompt": valor2,
+                "max_tokens": 3000,
+                "temperature": 0
+              })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data.choices[0].text))
+            .catch(error => console.error(error))
+            */
+  </script>  
+</body>
 </html>
