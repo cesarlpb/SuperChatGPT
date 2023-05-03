@@ -39,11 +39,11 @@
   </section>    
 
   <section class="sec-res">   
-    <form>
-      <label for="answer">Respuesta:</label><br>
-      <textarea id="answer" name="answer" rows="10" cols="77" placeholder="🥑🥑🥑Me gustan los aguacates y las papayas...;D🥑🥑🥑"></textarea>
-      <button onclick="???">Guardar respuesta</button>
-    </form> 
+    
+    <label for="answer">Respuesta:</label><br>
+    <textarea id="answer" name="answer" rows="10" cols="77" placeholder="🥑🥑🥑Me gustan los aguacates y las papayas...;D🥑🥑🥑"></textarea>
+    <button onclick="guardar()">Guardar</button>
+    
   </section> 
   </div>
  </div>  
@@ -76,9 +76,18 @@
             .then(response => response.json())
             .then(data => document.getElementById("answer").innerText=data.choices[0].text)
             .catch(error => console.error(error))
-
-    }
-
+      }
+      // EDITAMOS AQUÍ
+      function guardar(){
+        // Leemos el #question y #answer
+        let question = document.getElementById('question').value // <textarea> -> tomamos el texto con value 
+        let answer = document.getElementById('answer').value
+        // Guardamos los datos en localStorage
+        localStorage.setItem('question', question)
+        localStorage.setItem('answer', answer)
+        alert("Guardado!🌮")
+      }
+      // EDITAMOS AQUÍ
    </script>  
 </body>
 </html>
