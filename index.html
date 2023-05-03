@@ -18,33 +18,39 @@
       <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
     </div>
     </div>
-  </header>
+ </header>
 
-  <section class="background">
+ <div class="container">
+  <div class="background">
+    <div id="my-div"></div>
   <section class="sec-key">
     
-      <label for="api_key-input">Ingresar Clave de API: </label>
+      <label for="api_key-input">Ingresa tu clave de API: </label>
       <br>
-      <input type="text" id="api-key-input" name="api-key-input" placeholder="Aquí va tu clave API" required>
+      <input type="text" id="api-key-input" name="api-key-input" placeholder="🗝️Aquí va tu clave API🗝️" required>
     
   </section>
 
-  <div class="sec-pre">
-      <label for="question"> Pregunta:</label><br>
-      <textarea id="question" name="question" rows="4" cols="50" placeholder="Te gustan los aguacates?"></textarea>
+  <section class="sec-pre">
+      <label for="question">Pregunta:</label><br>
+      <textarea id="question" name="question" rows="4" cols="50" placeholder="🥑🥑🥑¿Te gustan los aguacates?🥑🥑🥑"></textarea>
       <br><br>
       <button onclick="pedirPrompt()">Enviar</button>
-  </div>    
+  </section>    
 
-  <div class="sec-res">   
+  <section class="sec-res">   
     <form>
       <label for="answer">Respuesta:</label><br>
-      <textarea id="answer" name="answer" rows="20" cols="77" placeholder="Me gustan los aguacates...;D"></textarea>
+      <textarea id="answer" name="answer" rows="10" cols="77" placeholder="🥑🥑🥑Me gustan los aguacates y las papayas...;D🥑🥑🥑"></textarea>
+      
     </form> 
-  </div> 
-</section>
+  </section> 
+  </div>
+ </div>  
+
     <footer>
-    <p>Derechos de CHATGPT © 2023</p>
+    <p>Derechos de SuperChatGPT © 2023</p>
+    <small class="text-muted">No se lastimaron aguacates en esta página. Presuntamente.</small>
   </footer>
   <script>
     function pedirPrompt(){
