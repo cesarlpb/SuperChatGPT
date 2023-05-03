@@ -82,9 +82,16 @@
         // Leemos el #question y #answer
         let question = document.getElementById('question').value // <textarea> -> tomamos el texto con value 
         let answer = document.getElementById('answer').value
+        let n = 1
+        if(localStorage.length > 0){
+          n = localStorage.length
+        }
         // Guardamos los datos en localStorage
-        localStorage.setItem('question', question)
-        localStorage.setItem('answer', answer)
+        let key = 'question-' + (n-1) // paréntesis para resolver primero la resta y después concatenar
+        let value = 'answer-' + (n-1)
+        console.log(key, value)
+        localStorage.setItem(key, question)
+        localStorage.setItem(value, answer)
         alert("Guardado!🌮")
       }
       // EDITAMOS AQUÍ
