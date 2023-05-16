@@ -23,13 +23,6 @@
  <div class="container">
   <div class="background">
     <div id="my-div"></div>
-  <section class="sec-key">
-    
-      <label for="api_key-input">Ingresa tu clave de API: </label>
-      <br>
-      <input type="text" id="api-key-input" name="api-key-input" placeholder="🗝️Aquí va tu clave API🗝️" required>
-    
-  </section>
 
   <section class="sec-pre">
       <label for="question">Pregunta:</label><br>
