@@ -13,4 +13,4 @@ VALUES ("Dime que es JS?","Dicen que se programa en eso...");
 
 -- Query para leer todos los prompts:
 
-SELECT * from prompts;
+SELECT * FROM prompts;
