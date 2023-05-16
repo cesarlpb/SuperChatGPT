@@ -18,7 +18,7 @@
         <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
       </div>
       <div>
-        <a href="prompts.php">Ver prompts</a>
+        <a href="prompts.php" style="color: white;">Ver prompts</a>
       </div>
     </div>
  </header>
