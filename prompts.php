@@ -16,4 +16,18 @@ if(!$conn){
 }
 echo "Conexión exitosa!";
 
+// Query para sacar lista de usuario con id 1:
+$query = "SELECT * FROM prompts";
+$resultado = mysqli_query($conn, $query);
+// Pasamos el objeto a un array:
+$arr = mysqli_fetch_array($resultado); 
+
+// Bucle para avisar si el query funcionó
+
+echo "<h2>Prompts</h2>";
+// Escribir los resultados (normalmente con un bucle):
+echo "id: " . $arr["id"] . "<br>";
+echo "preguntas: " . $arr["preguntas"] . "<br>";
+echo "respuestas: " . $arr["respuestas"] . "<br>";
+// Solo tenemos un dato asi que no ponemos bucle :)
 ?>
