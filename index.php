@@ -14,9 +14,12 @@
  <header>
     <div class="encabezado">
       <h1 class="titulo">SuperChatGPT</h1>
-    <div class="logo">
-      <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
-    </div>
+      <div class="logo">
+        <img class="img_logo" src="https://raw.githubusercontent.com/cesarlpb/SuperChatGPT/main/logo.png" alt="logo">
+      </div>
+      <div>
+        <a href="prompts.php">Ver prompts</a>
+      </div>
     </div>
  </header>
 
@@ -47,10 +50,10 @@
   </footer>
   <script>
     function pedirPrompt(){
-      let elementApiKey = document.getElementById("api-key-input");
-      let valor = elementApiKey.value;
+      // let elementApiKey = document.getElementById("api-key-input");
+      // let valor = elementApiKey.value;
       let elementPrompt = document.getElementById("question")
-      let valor2 = elementPrompt.value;
+      let prompt = elementPrompt.value;
       let elementAnswer = document.getElementById("answer")
       //elementAnswer.innerText = valor + valor2
       fetch("https://api.openai.com/v1/completions", {
@@ -61,7 +64,7 @@
               },
               body: JSON.stringify({
                 "model": "text-davinci-003",
-                "prompt": valor2,
+                "prompt": prompt,
                 "max_tokens": 3000,
                 "temperature": 0
               })
