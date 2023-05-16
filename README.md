@@ -10,6 +10,14 @@ Aplicación realizada en grupo como parte de la formación IFCT0609. No guarda i
 - CSS
 - Javascript
 - Openai API
+- MySQL - SQL
+- PHP :)
+
+## v2.0
+- Crear tabla `prompts`
+- Queries de SQL
+- Conexión a BBDD con PHP
+- Flujo completo de pedir prompt
 
 # Cosas por hacer:
 1. Evitar que botón de guardar recargue página
