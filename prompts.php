@@ -24,7 +24,7 @@ echo "<h2>Prompts</h2>";
 
 // Bucle para escribir todos los prompts:
 while($fila = mysqli_fetch_array($resultado, MYSQLI_ASSOC)){
-    echo "<a href='?id=" . $fila["id"] . "><h2>#" . $fila["id"] . "</h2></a>";
+    echo "<a href='?id=" . $fila["id"] . "'><h2>#" . $fila["id"] . "</h2></a>";
     echo "preguntas: " . $fila["preguntas"] . "<br>";
     echo "respuestas: " . $fila["respuestas"] . "<br>";
 }
