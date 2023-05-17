@@ -6,7 +6,7 @@ $prompt = $_POST["question"];
 echo "<p>Pregunta: " . $prompt . "</p>";
 
 $url = 'https://api.openai.com/v1/completions';
-$api_key = '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'; // Reemplaza con tu token de autorización
+$api_key = 'sk-tu_api_key_supersafe123/'; // Reemplaza con tu token de autorización
 
 $data = array(
     'model' => 'text-davinci-003',
