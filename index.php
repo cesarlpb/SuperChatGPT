@@ -28,10 +28,12 @@
     <div id="my-div"></div>
 
   <section class="sec-pre">
+    <form action="form.php" method="POST">
       <label for="question">Pregunta:</label><br>
       <textarea id="question" name="question" rows="4" cols="50" placeholder="🥑🥑🥑¿Te gustan los aguacates?🥑🥑🥑"></textarea>
       <br><br>
-      <button onclick="pedirPrompt()">Enviar</button>
+      <button>Enviar</button>
+    </form>
   </section>    
 
   <section class="sec-res">   
