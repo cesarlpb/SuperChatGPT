@@ -18,7 +18,15 @@ if(!$conn){
 
 echo "<h2>Prompts</h2>";
 
-$id = $_GET["id"];
+// If Else para evitar que aparezca warning cuando $_GET["id"] no está definido:
+if(isset($_GET["id"])){
+  $id = $_GET["id"];
+}else{
+  $id = 0;
+}
+// Ternario:
+// $id = isset($_GET["id"]) ? $_GET["id"] : 0;
+
 echo "id:" . $id . "<br><br>";
 
 if($id > 0){
