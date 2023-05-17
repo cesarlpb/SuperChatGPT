@@ -14,20 +14,34 @@ $conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
 if(!$conn){
     die("Error en la conexión: " . mysqli_connect_error());
 }
-// echo "Conexión exitosa!";
-
-// Query para sacar lista de usuario con id 1:
-$query = "SELECT * FROM prompts";
-$resultado = mysqli_query($conn, $query); 
+// echo "Conexión exitosa!"; 
 
 echo "<h2>Prompts</h2>";
 
-// Bucle para escribir todos los prompts:
-while($fila = mysqli_fetch_array($resultado, MYSQLI_ASSOC)){
+$id = $_GET["id"];
+echo "id:" . $id . "<br><br>";
+
+if($id > 0){
+    $query = "SELECT * FROM prompts WHERE id=" . $id;
+    $resultado = mysqli_query($conn, $query); 
+    $fila = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
+    echo "<a href='prompts.php'>Volver a Prompts!</a>";
     echo "<a href='?id=" . $fila["id"] . "'><h2>#" . $fila["id"] . "</h2></a>";
     echo "preguntas: " . $fila["preguntas"] . "<br>";
     echo "respuestas: " . $fila["respuestas"] . "<br>";
+}else{
+    // Query para sacar lista de usuario con id 1:
+    $query = "SELECT * FROM prompts";
+    $resultado = mysqli_query($conn, $query);
+    // Bucle para escribir todos los prompts:
+    echo "<a href='index.php'>Volver a Home!</a>";
+    while($fila = mysqli_fetch_array($resultado, MYSQLI_ASSOC)){
+        echo "<a href='?id=" . $fila["id"] . "'><h2>#" . $fila["id"] . "</h2></a>";
+        echo "preguntas: " . $fila["preguntas"] . "<br>";
+        echo "respuestas: " . $fila["respuestas"] . "<br>";
+    }
 }
+
 // Solo tenemos un dato asi que no ponemos bucle :)
 
 // Liberamos memoria
