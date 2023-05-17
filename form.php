@@ -6,13 +6,13 @@ $prompt = $_POST["question"];
 echo "<p>Pregunta: " . $prompt . "</p>";
 
 $url = 'https://api.openai.com/v1/completions';
-$api_key = 'sk-tu_api_key_supersafe123/'; // Reemplaza con tu token de autorización
+$api_key = 'sk-tu_api_key_va_aqui_:)'; // Reemplaza con tu token de autorización
 
 $data = array(
     'model' => 'text-davinci-003',
     'prompt' => $prompt,
     'max_tokens' => 3000,
-    'temperature' => 0
+    'temperature' => 1
 );
 
 $payload = json_encode($data);
@@ -33,4 +33,27 @@ $answer = $result['choices'][0]['text'];
 
 echo "<p>Respuesta:</p>";
 echo $answer;
+
+// Guardado automático?
+if(isset($prompt) && isset($answer)){
+    // Conexión a la base de datos local
+    // Variables de conexión:
+    $db_host = "localhost";
+    $db_user = "root"; // TODO: en el futuro, crearemos un usuario con permisos
+    $db_password = "";
+    $db_name = "pruebas";
+
+    // Crear conexión
+    $conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+
+    // Comprobar si hay errores
+    if(!$conn){
+        die("Error en la conexión: " . mysqli_connect_error());
+    }
+    // echo "Conexión exitosa!"; 
+    $query = "INSERT INTO prompts (preguntas, respuestas) 
+    VALUES ('$prompt','$answer')";
+    $resultado = mysqli_query($conn, $query);
+    echo "<br><br>Resultado:" . $resultado;
+}
 ?>
