@@ -6,13 +6,13 @@ $prompt = $_POST["question"];
 echo "<p>Pregunta: " . $prompt . "</p>";
 
 $url = 'https://api.openai.com/v1/completions';
-$api_key = 'sk-tu_api_key_va_aqui_:)'; // Reemplaza con tu token de autorización
+$api_key = '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'; // Reemplaza con tu token de autorización
 
 $data = array(
     'model' => 'text-davinci-003',
     'prompt' => $prompt,
     'max_tokens' => 3000,
-    'temperature' => 1
+    'temperature' => 1 
 );
 
 $payload = json_encode($data);
