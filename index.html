@@ -36,13 +36,18 @@
     </form>
   </section>    
 
+  <section>
+    <p id="test" style="color:white;"></p>
+  </section> 
+
   <section class="sec-res">   
     <form>
       <label for="answer">Respuesta:</label><br>
       <textarea id="answer" name="answer" rows="10" cols="77" placeholder="🥑🥑🥑Me gustan los aguacates y las papayas...;D🥑🥑🥑"></textarea>
       <button onclick="">Guardar respuesta</button>
     </form> 
-  </section> 
+  </section>
+  
   </div>
  </div>  
 
@@ -51,6 +56,28 @@
     <small class="text-muted">No se lastimaron aguacates en esta página. Presuntamente.</small>
   </footer>
   <script>
+    let endpointUrl = "http://localhost:5000/prompts";
+    fetch(endpointUrl, {
+      method: 'GET',
+      headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+      mode: 'cors',
+    }).then(function (response) {
+      // La llamada a la API fue exitosa
+      return response.json();
+    }).then(function (data) {
+      // Generamos tabla
+      // let html = generarTablaHTML(data)
+      // Colocamos los datos en un elemento del HTML:
+      document.getElementById("test").innerHTML = data;
+      // Este es el JSON de nuestra respuesta
+      console.log(data);
+    }).catch(function (err) {
+      // Hubo un error
+      console.warn('Algo salió mal.', err);
+    });
+    
     function pedirPrompt(){
       // let elementApiKey = document.getElementById("api-key-input");
       // let valor = elementApiKey.value;
